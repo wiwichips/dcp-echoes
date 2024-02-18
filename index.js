@@ -11,7 +11,7 @@
  * @date    February 2024
  */
 
-var dcp = null;
+var dcpEcho = null;
 
 if ('dcp/build' in require.cache)
 {
@@ -29,7 +29,7 @@ if ('dcp/build' in require.cache)
   ];
 
   // decorate with identical properties to initSync
-  dcp = {};
+  dcpEcho = {};
   for (const name in require.cache)
   {
     if (!name.startsWith('dcp/') || denyList.includes(name))
@@ -37,11 +37,11 @@ if ('dcp/build' in require.cache)
 
     const modName = name.slice(4);
 
-    dcp[modName] = require.cache[name]['exports'];
+    dcpEcho[modName] = require.cache[name]['exports'];
   }
 }
 else
-  dcp = require('dcp-client').initSync();
+  dcpEcho = require('dcp-client').initSync();
 
-module.exports = dcp;
+module.exports = dcpEcho;
 
