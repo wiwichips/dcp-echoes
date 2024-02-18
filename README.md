@@ -6,6 +6,15 @@ A simple wrapper for the [dcp-client](https://www.npmjs.com/package/dcp-client) 
 
 Require dcp-client as many times as you want just like any other npm package!
 
+`dcp-echoes` uses `dcp-client` as a peer dependency, in simple configurations, it will use the `dcp-client` specified in your project's `package.json`. This may cause problems with more complex project dependencies.
+
+Install `dcp-client` and `dcp-echoes`:
+```
+npm i dcp-client
+npm i dcp-echoes
+```
+
+Require `dcp-echoes` as many times as you please:
 ```js
 const { wallet, compute } = require('dcp-echoes');
 const protocol = require('dcp-echoes').protocol;
